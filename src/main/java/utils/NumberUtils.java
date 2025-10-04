@@ -70,5 +70,27 @@ public class NumberUtils {
         return true;
     }
 
-
+    /* Exercise 4 */
+    /**
+     * checking if two arrays has the same elements (order will not check)
+     *
+     * @param a first array
+     * @param b second array
+     * @return "true" value will pass if arrays has the same elements, "false" if not
+     */
+    public static boolean isEqual(int[] a, int[] b){
+        // not equal if arrays have different lengths
+        if(a.length != b.length) return false;
+        // to avoid modifying originals copy arrays
+        int[] copyA = Arrays.copyOf(a, a.length);
+        int[] copyB = Arrays.copyOf(b, b.length);
+        // sort arrays, because order does not matter
+        Arrays.sort(copyA);
+        Arrays.sort(copyB);
+        // compare sorted elements one by one
+        for (int i = 0; i < copyA.length; i++) {
+            if (copyA[i] != copyB[i]) return false;
+        }
+        return true;
+    }
 }

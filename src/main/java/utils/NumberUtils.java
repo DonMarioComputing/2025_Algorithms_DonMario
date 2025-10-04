@@ -101,6 +101,39 @@ public class NumberUtils {
         return true;
     }
 
+    /* Exercise 5 */
+    /**
+     * checking if array "a" is a strict subset of array "b"
+     *
+     * @param a potential subset
+     * @param b potential original array
+     * @return  "true" value will pass if "a" is a subset of "b", false if not
+     */
+    public static boolean isSubset(int[] a, int[] b) {
+        if (a == null || b == null || a.length == 0 || a.length >= b.length) return false;
+
+    // create a boolean array to track elements in "b" that have already matched
+        boolean[] used = new boolean[b.length];
+
+        // loop through each element in array 'a'
+        for (int i = 0; i < a.length; i++) {
+            // if current element of "a" exists in "b"
+            boolean found = false;
+            // check if this element exists in "b" and has not used yet
+            for (int j = 0; j < b.length; j++) {
+                if (!used[j] && a[i] == b[j]) {
+                    used[j] = true;
+                    found = true;
+                    break;
+                }
+            }
+            // "a" is not a subset if element from "a" is not found in "b"
+            if (!found) return false;
+        }
+
+        return true;
+    }
+
     /* Exercise 6 */
     /**
      * returns the largest number in an array

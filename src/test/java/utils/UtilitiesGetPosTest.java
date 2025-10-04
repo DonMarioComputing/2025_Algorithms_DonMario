@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author michelle
  */
 public class UtilitiesGetPosTest {
-    
+
     public UtilitiesGetPosTest() {
     }
 
@@ -23,9 +23,9 @@ public class UtilitiesGetPosTest {
         int expResult = 0;
         int result = NumberUtils.getPos(nums, value);
         assertEquals(expResult, result);
-        
+
     }
-    
+
     @Test
     public void testGetPosMultipleOfSameValue() {
         System.out.println("Testing getPos where value appears in more than one position");
@@ -34,9 +34,9 @@ public class UtilitiesGetPosTest {
         int expResult = 0;
         int result = NumberUtils.getPos(nums, value);
         assertEquals(expResult, result);
-        
+
     }
-    
+
     @Test
     public void testGetPosNoInstancePresent() {
         System.out.println("Testing getPos where value is not present in array");
@@ -45,9 +45,9 @@ public class UtilitiesGetPosTest {
         int expResult = -1;
         int result = NumberUtils.getPos(nums, value);
         assertEquals(expResult, result);
-        
+
     }
-    
+
     @Test
     public void testGetPosWithEmptyArray() {
         System.out.println("Testing getPos where supplied array is empty");
@@ -57,7 +57,7 @@ public class UtilitiesGetPosTest {
         int result = NumberUtils.getPos(nums, value);
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testGetPosSeekingNegativeValue() {
         System.out.println("Testing getPos where value being sought is negative");
@@ -67,7 +67,7 @@ public class UtilitiesGetPosTest {
         int result = NumberUtils.getPos(nums, value);
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testGetPosValueInLastSlot() {
         System.out.println("Testing getPos where value is in last position");
@@ -77,13 +77,13 @@ public class UtilitiesGetPosTest {
         int result = NumberUtils.getPos(nums, value);
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testGetPosNullArray() {
         System.out.println("Testing getPos where array supplied is null");
         int[] nums = null;
         int value = 10;
-        
+
         assertThrows(NullPointerException.class, () -> {
             NumberUtils.getPos(nums, value);}, "NullPointerException was expected");
     }

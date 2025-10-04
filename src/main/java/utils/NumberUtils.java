@@ -79,8 +79,15 @@ public class NumberUtils {
      * @return "true" value will pass if arrays has the same elements, "false" if not
      */
     public static boolean isEqual(int[] a, int[] b){
+        // equal if both arrays are null
+        if (a == null && b == null) return true;
+
+        // not equal if one array is null
+        if (a == null || b == null) return false;
+
         // not equal if arrays have different lengths
         if(a.length != b.length) return false;
+
         // to avoid modifying originals copy arrays
         int[] copyA = Arrays.copyOf(a, a.length);
         int[] copyB = Arrays.copyOf(b, b.length);

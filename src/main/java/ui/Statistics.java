@@ -23,6 +23,15 @@ public class Statistics {
             try {
                 int largest = NumberUtils.getMax(randomArray);
                 System.out.println("\nLargest value in the random array: " + largest);
+
+                // use NumberUtils.getPos() to find the position it first appears
+                int firstPos = NumberUtils.getPos(randomArray, largest);
+                if (firstPos != -1) {
+                    System.out.println("This largest value first appears at index: " + firstPos);
+                } else {
+                    System.out.println("Cannot find the position of the largest value");
+                }
+
             } catch (Exception e) {
                 System.out.println("Error finding largest value: " + e.getMessage());
             }

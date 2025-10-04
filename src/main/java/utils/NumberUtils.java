@@ -44,7 +44,31 @@ public class NumberUtils {
         return -1;
     }
 
+    /* Exercise 3 */
+    /**
+     * checking if two arrays are identical (the same data in the same order)
+     *
+     * @param a first array
+     * @param b second array
+     * @return "true" value will pass if identical, "false" if not
+     */
+    public static boolean isIdentical(int[] a, int[] b) {
+        // identical if both arrays null
+        if (a == null && b == null) return true;
 
+        // not identical if one array is null
+        if (a == null || b == null) return false;
+
+        // not identical if each array has different length
+        if (a.length != b.length) return false;
+
+        // compare every element one by one
+        for (int i = 0; i < a.length; i++)
+            if (a[i] != b[i]) return false;
+
+        // identical if all checks passed
+        return true;
+    }
 
 
 }

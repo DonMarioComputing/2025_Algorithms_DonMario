@@ -100,4 +100,27 @@ public class NumberUtils {
         }
         return true;
     }
+
+    /* Exercise 6 */
+    /**
+     * returns the largest number in an array
+     *
+     * @param arr the search array
+     * @return give the largest number in array
+     * @throws IllegalArgumentException if array is empty
+     * @throws NullPointerException if array is null
+     */
+    public static int getMax(int[] arr) {
+        if (arr.length == 0)
+            throw new IllegalArgumentException("Array is empty:");
+        if (arr == null)
+            throw new NullPointerException("Array is null");
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) max= arr[i];
+        }
+        return max;
+    }
+
+
 }

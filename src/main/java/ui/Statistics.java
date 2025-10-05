@@ -32,6 +32,14 @@ public class Statistics {
                     System.out.println("Cannot find the position of the largest value");
                 }
 
+                // use NumberUtils.getLastPos() to find the last position of the largest value
+                int lastPos = NumberUtils.getLastPos(randomArray, largest);
+                if (lastPos != -1) {
+                    System.out.println("This largest value last appears at index: " + lastPos);
+                } else {
+                    System.out.println("Cannot find the last position of the largest value");
+                }
+
             } catch (Exception e) {
                 System.out.println("Error finding largest value: " + e.getMessage());
             }

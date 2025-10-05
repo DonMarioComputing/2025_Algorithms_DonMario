@@ -44,6 +44,28 @@ public class Statistics {
                 System.out.println("Error finding largest value: " + e.getMessage());
             }
 
+            // check if arrays are identical (same order and same values)
+            if (NumberUtils.isIdentical(hardCodedArray, randomArray)) {
+                System.out.println("The arrays are identical");
+            }
+            // check if arrays are equal (same elements, different order)
+            else if (NumberUtils.isEqual(hardCodedArray, randomArray)) {
+                System.out.println("The arrays are equal");
+            }
+            // check if hard coded array is a subset of the random array
+            else if (NumberUtils.isSubset(hardCodedArray, randomArray)) {
+                System.out.println("The hard coded array is a subset of the random array");
+            }
+            // check if random array is a subset of the hard coded array
+            else if (NumberUtils.isSubset(randomArray, hardCodedArray)) {
+                System.out.println("The random array is a subset of the hard coded array");
+            }
+            // if not, no relationship
+            else {
+                System.out.println("The arrays are not identical, equal, or subsets");
+            }
+
+
         } else {
             System.out.println("Random array cannot be generated");
 

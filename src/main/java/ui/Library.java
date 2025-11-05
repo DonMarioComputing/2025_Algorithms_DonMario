@@ -21,5 +21,8 @@ public class Library {
         System.out.println("Initial array of books:");
         System.out.println(BookUtils.toString(books));
 
+        //2.sort the array first [to avoid null issues [as the amendment email]]
+        Arrays.sort(books);
+
     }
 }

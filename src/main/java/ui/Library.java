@@ -29,5 +29,13 @@ public class Library {
         Book removedBook = BookUtils.emptyIndex(books, randomIndex);
         System.out.println("\nRandomly removed book at position " + randomIndex + ": " + removedBook);
 
+        //4.Insert the book you deleted at step 2 back into the array in sorted order.
+        Book lostBook = BookUtils.sortedInsert(books, removedBook);
+        if (lostBook != null) {
+            System.out.println("Book lost due to array being full after sorted insert: " + lostBook);
+        }
+
+        System.out.println("\nArray after inserting removed book back in sorted order:");
+        System.out.println(BookUtils.toString(books));
     }
 }

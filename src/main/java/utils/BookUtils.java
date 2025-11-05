@@ -119,6 +119,52 @@ public class BookUtils {
         // book not found in the array
         return false;
     }
+
+    //Exercise 4:
+    /**
+     * Deletes all occurrences of a specified book from the array using the shifting
+     *
+     * @param books the array of objects to modify
+     * @param book the object to delete
+     * @return the number of instances removed from the array
+     * @throws IllegalArgumentException if the supplied array or book is null
+     */
+    public static int deleteAll(Book[] books, Book book) {
+        // validate the array
+        if (books == null) {
+            throw new IllegalArgumentException("Book array cannot be null");
+        }
+
+        // validate the book
+        if (book == null) {
+            throw new IllegalArgumentException("Book to delete cannot be null");
+        }
+
+        // track where the next non deleted book should be placed
+        int writeIndex = 0;
+        // tracks number of deleted books
+        int countDeleted = 0;
+
+        // loop through all books
+        for (int readIndex = 0; readIndex < books.length; readIndex++) {
+            // skip null slots
+            if (books[readIndex] != null && books[readIndex].equals(book)) {
+                // increment deleted count when found a match
+                countDeleted++;
+            } else {
+                // keep the book by writing it at writeIndex
+                books[writeIndex] = books[readIndex];
+                writeIndex++;
+            }
+        }
+
+        // blank out remaining slots at the end
+        for (int i = writeIndex; i < books.length; i++) {
+            books[i] = null;
+        }
+
+        return countDeleted;
+    }
 }
 
 

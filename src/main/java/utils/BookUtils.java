@@ -121,11 +121,12 @@ public class BookUtils {
     }
 
     //Exercise 4:
+
     /**
      * Deletes all occurrences of a specified book from the array using the shifting
      *
      * @param books the array of objects to modify
-     * @param book the object to delete
+     * @param book  the object to delete
      * @return the number of instances removed from the array
      * @throws IllegalArgumentException if the supplied array or book is null
      */
@@ -164,6 +165,41 @@ public class BookUtils {
         }
 
         return countDeleted;
+    }
+
+    //Exercise 5:
+
+    /**
+     * Replaces all instance of a specified book in the array with another supplied book using overwriting
+     *
+     * @param books the array of objects to modify
+     * @param toReplace the object to be replaced
+     * @param replacement the object to insert in place of toReplace
+     * @return the number of books replaced in the array
+     * @throws IllegalArgumentException if the array toReplace or replacement is null
+     */
+    public static int replace(Book[] books, Book toReplace, Book replacement) {
+        // validate the array
+        if (books == null) {
+            throw new IllegalArgumentException("Book array cannot be null");
+        }
+
+        // validate the books
+        if (toReplace == null || replacement == null) {
+            throw new IllegalArgumentException("Book to replace and replacement cannot be null");
+        }
+
+        int countReplaced = 0;
+
+        // loop through array and overwrite matching books
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] != null && books[i].equals(toReplace)) {
+                books[i] = replacement;
+                countReplaced++;
+            }
+        }
+
+        return countReplaced;
     }
 }
 

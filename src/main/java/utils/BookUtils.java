@@ -201,7 +201,54 @@ public class BookUtils {
 
         return countReplaced;
     }
+
+    //Exercise 6:
+
+    /**
+     * Inserts a Book into a sorted array using shifting
+     * The Book is inserted before the first Book that is larger
+     * Null slots are ignored in comparisons but can be shifted
+     * If the Book belongs after the last element, it is not inserted
+     *
+     * @param books the array of books to be amended
+     * @param toBeInserted the book to insert
+     * @return the book "lost" after shifting or null if no book is lost
+     * @throws IllegalArgumentException if books array or book to insert is null
+     */
+    public static Book sortedInsert(Book[] books, Book toBeInserted) {
+        // validation
+        if (books == null || toBeInserted == null) {
+            throw new IllegalArgumentException("Array and Book to insert must not be null");
+        }
+
+        int insertIndex = -1;
+
+        // find the index to insert before the first larger book
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] != null && toBeInserted.compareTo(books[i]) < 0) {
+                insertIndex = i;
+                break;
+            }
+        }
+
+        // do not insert if no book is larger
+        if (insertIndex == -1) {
+            return null;
+        }
+
+        // shift books to the right starting from the last element
+        Book lostBook = books[books.length - 1]; // last book will be lost
+        for (int i = books.length - 1; i > insertIndex; i--) {
+            books[i] = books[i - 1];
+        }
+
+        // insert the new book
+        books[insertIndex] = toBeInserted;
+
+        return lostBook;
+    }
 }
+
 
 
 

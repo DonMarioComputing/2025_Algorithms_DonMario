@@ -60,6 +60,26 @@ public class Library {
         System.out.println("\nArray after deletion:");
         System.out.println(BookUtils.toString(books));
 
+        //7. Select a random book within the book array to be replaced
+        //▪ To select a random book, generate a random number within the boundaries of the array. The
+        //book at that position is your randomly selected book.
 
+        //select a random book to replace
+        int replaceIndex = random.nextInt(books.length);
+        Book toReplace = books[replaceIndex];
+
+        //8. Using generateBook() in BookGenerator.java, generate a random Book to insert
+        Book replacement = BookGenerator.generateBook();
+
+        //9. Replace all instances of the book you randomly selected in step 7 with the book generated in step 8.
+        //Inform the user how many instances were replaced, then display the updated array.
+        int replacedCount = BookUtils.replace(books, toReplace, replacement);
+        System.out.println("\nReplaced " + replacedCount + " instance(s) of:");
+        System.out.println(toReplace);
+        System.out.println("with:");
+        System.out.println(replacement);
+
+        System.out.println("\nFinal array of books:");
+        System.out.println(BookUtils.toString(books));
     }
 }
